@@ -1,5 +1,6 @@
 import Navbar from "./Components/Navbar";
 import { createTheme, ThemeProvider } from "@mui/material";
+import Footer from "./Components/Footer"
 function App() {
   const theme = createTheme({
     palette: {
@@ -15,6 +16,7 @@ function App() {
   return (
     <ThemeProvider theme = {theme}>
       <Navbar />
+      <Footer/>
     </ThemeProvider>
   );
 }

@@ -118,7 +118,7 @@ function Navbar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
+                sx={{ my: 2, color: 'black', display: 'block', "&:hover":{color:"#88BF6F"},transition: "all 1s"}}
               >
                 {page}
               </Button>
