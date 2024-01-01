@@ -13,10 +13,13 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-const pages = ['Home', 'About Us', 'Contact'];
+import { useNavigate } from 'react-router-dom';
+
+const pages = ['home', 'about', 'contact'];
 const settings = ['Login', 'Logout', 'Register'];
 
 function Navbar() {
+    const navigate = useNavigate()
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -36,6 +39,7 @@ function Navbar() {
   };
 
   return (
+    <>
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -157,6 +161,8 @@ function Navbar() {
         </Toolbar>
       </Container>
     </AppBar>
+     {/* <Box height={"50px"}> </Box> */}
+     </>
   );
 }
 export default Navbar;
