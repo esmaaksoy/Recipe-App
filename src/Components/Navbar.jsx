@@ -15,10 +15,9 @@ import AdbIcon from "@mui/icons-material/Adb";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const pages = ["home", "about", "contact"];
-const settings = ["Login", "Logout", "Register"];
-
+const pages = ["home", "about", "contact", "menu"];
 function Navbar() {
+  const currentUser = false;
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -99,8 +98,12 @@ function Navbar() {
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
-                   
-                    <Typography textAlign="center">{page}</Typography>
+                    <NavLink
+                      to={`/${page}`}
+                      style={{ textAlign: "center", textDecoration: "none" }}
+                    >
+                      {page.toUpperCase()}
+                    </NavLink>
                   </MenuItem>
                 ))}
               </Menu>
@@ -136,14 +139,15 @@ function Navbar() {
                   to={`/${page}`}
                   key={page}
                   onClick={handleCloseNavMenu}
-                  sx={{
+                  style={{
                     my: 2,
                     color: "black",
                     display: "block",
                     textDecoration: "none",
+                    marginRight: "1rem",
                   }}
                 >
-                  {page}
+                  {page.toUpperCase()}
                 </NavLink>
               ))}
             </Box>
@@ -170,11 +174,22 @@ function Navbar() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
+                {currentUser ? (
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">LogOut</Typography>
                   </MenuItem>
-                ))}
+                ) : (
+                    <>
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">Log in</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleCloseUserMenu}>
+
+                    <Typography textAlign="center">Register</Typography>
+                    
+                  </MenuItem>
+                  </>
+                )}
               </Menu>
             </Box>
           </Toolbar>

@@ -8,18 +8,21 @@ import Navbar from "../Components/Navbar"
 import Footer from '../Components/Footer'
 import About from "../pages/About";
 import Contact from "../pages/Contact";
+import Menu from "../pages/Menu";
+
 const AppRouter = () => {
   return (
     <>
      <Navbar/>
       <Routes>
         <Route path="/home" element={<Home/>} />
+        <Route path="/menu" element={<Menu/>} />
         <Route path="login" element={<Login/>} />
         <Route path="register" element={<Register/>} />
         <Route path="about" element={<About/>}/>
         <Route path="contact" element={<Contact/>}/>
         <Route path="dashboard" element={<PrivateRouter/>}>
-          <Route path=":id" element={<Details/>} />
+          <Route path="details" element={<Details/>} />
         </Route>
       </Routes>
       <Footer/>
