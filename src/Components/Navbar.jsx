@@ -14,10 +14,12 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import { NavLink, useNavigate } from "react-router-dom";
-
+import { useAuthContext } from "../context/AuthContext";
+import avatar from "../assets/icons/avatar.png";
 const pages = ["home", "about", "contact", "menu"];
 function Navbar() {
-  const currentUser = false;
+  const { logOut, currentUser } = useAuthContext();
+
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -151,11 +153,13 @@ function Navbar() {
                 </NavLink>
               ))}
             </Box>
-
+            {currentUser && (
+                <Typography marginRight={2} >{currentUser?.displayName} </Typography>
+              )}
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+             <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  <Avatar alt="Remy Sharp" src={currentUser?.photoURL || avatar} />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -176,22 +180,21 @@ function Navbar() {
               >
                 {currentUser ? (
                   <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">LogOut</Typography>
+                    <Typography textAlign="center" onClick={logOut}>LogOut</Typography>
                   </MenuItem>
                 ) : (
                     <>
                   <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Log in</Typography>
+                    <Typography textAlign="center" onClick={()=>navigate("/login")}>Log in</Typography>
                     </MenuItem>
                     <MenuItem onClick={handleCloseUserMenu}>
-
-                    <Typography textAlign="center">Register</Typography>
-                    
+                    <Typography textAlign="center" onClick={()=>navigate("/register")}>Register</Typography>                    
                   </MenuItem>
                   </>
                 )}
               </Menu>
             </Box>
+           
           </Toolbar>
         </Container>
       </AppBar>
