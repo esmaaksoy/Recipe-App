@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import RecipeCard from "../Components/RecipeCard";
 import Pagination from "@mui/material/Pagination";
-
+import Container from '@mui/material/Container';
 const Menu = () => {
   const [recipes, setRecipes] = useState([]);
   const [meal, setMeal] = useState("breakfast");
@@ -79,7 +79,7 @@ const Menu = () => {
   
 
   return (
-    <>
+    <Container>
       <form onSubmit={handleSubmit}>
         <Stack
           flexDirection={"row"}
@@ -128,7 +128,7 @@ const Menu = () => {
             </Button>
           </div>
         </Stack>
-        <Grid container spacing={3} padding={"4rem"} justifyContent="center">
+        <Grid container spacing={3}  justifyContent="center">
         {recipes.map((data) => (
             <Grid item xs={12} sm={6} md={4} lg={3} >
           <RecipeCard key={data.recipe.label} data={data} />
@@ -143,7 +143,7 @@ const Menu = () => {
           onChange={handlePageChange}
         />
       </Stack>
-    </>
+    </Container>
   );
 };
 
