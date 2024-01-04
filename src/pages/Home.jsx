@@ -1,7 +1,4 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
-import CardMedia from "@mui/material/CardMedia";
 import { NavLink } from "react-router-dom";
 const Home = () => {
   return (

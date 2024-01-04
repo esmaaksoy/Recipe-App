@@ -37,7 +37,7 @@ const AuthContextProvider = ({ children }) => {
       await updateProfile(auth.currentUser, {
         displayName: displayName,
       });
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -49,7 +49,7 @@ const AuthContextProvider = ({ children }) => {
         email,
         password
       );
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +77,7 @@ const AuthContextProvider = ({ children }) => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        navigate("/home");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

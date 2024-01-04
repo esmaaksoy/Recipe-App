@@ -14,7 +14,7 @@ import RestaurantIcon from "@mui/icons-material/Restaurant";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import avatar from "../assets/icons/avatar.png";
-const pages = ["home","menu", "blog"];
+const pages = ["menu", "blog"];
 function Navbar() {
   const { logOut, currentUser } = useAuthContext();
 
@@ -42,7 +42,7 @@ function Navbar() {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <NavLink to={"/home"} style={{display:"flex", textDecoration:"none"}}>
+            <NavLink to={"/"} style={{display:"flex", textDecoration:"none"}}>
             <RestaurantIcon
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -109,7 +109,7 @@ function Navbar() {
                 ))}
               </Menu>
             </Box>
-            <NavLink to={"/home"} style={{display:"flex", textDecoration:"none"}}>
+            <NavLink to={"/"} style={{display:"flex", textDecoration:"none"}}>
             <RestaurantIcon
               sx={{
                 display: { xs: "flex", md: "none" },

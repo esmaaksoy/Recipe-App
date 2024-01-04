@@ -3,7 +3,7 @@ This application is a recipe website that provides access to detailed recipes fo
 ## Screenshots
 ![Project snapshot](./recipe.gif) 
 
-[Recipe App Live Page](https://moving-button-esma.netlify.app/)
+[Recipe App Live Page](https://recipe-app-esma.netlify.app/)
 
 ## Tech/framework used
 <b>Built with</b> <br>

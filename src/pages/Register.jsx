@@ -12,25 +12,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { useAuthContext } from "../context/AuthContext";
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
-
 export default function Register() {
-
   const { createUser, signUpProvider } = useAuthContext();
   const [info, setInfo] = useState({
     firstName: "",
@@ -41,23 +24,12 @@ export default function Register() {
 
   const handleChange = (e) =>
   setInfo({ ...info, [e.target.name]: e.target.value });
-
 const handleSubmit = (e) => {
   e.preventDefault();
   const { email, password, firstName, lastName } = info;
   const displayName = `${firstName} ${lastName}`;
   createUser(email, password, displayName);
 };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get('email'),
-  //     password: data.get('password'),
-  //   });
-  // };
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
