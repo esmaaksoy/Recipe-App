@@ -1,4 +1,4 @@
-# Moving Button
+# Recipe App
 This application is a recipe website that provides access to detailed recipes for logged-in users. Users with a registered account can log in with their credentials, create a new account if they don't have one, or log in using their Google account.
 ## Screenshots
 ![Project snapshot](./recipe.gif) 
