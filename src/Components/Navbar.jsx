@@ -49,8 +49,7 @@ function Navbar() {
                 mr: 1,
                 color: "#88BF6F",
               }}
-            />
-                
+            />                
             <Typography
               variant="h6"
               noWrap
@@ -117,9 +116,8 @@ function Navbar() {
                 mr: 1,
                 color: "#88BF6F",
               }}
-            />
-           
-            <Typography
+            />          
+           <Typography
               variant="h5"
               noWrap
               component="a"
@@ -201,7 +199,6 @@ function Navbar() {
           </Toolbar>
         </Container>
       </AppBar>
-      {/* <Box height={"50px"}> </Box> */}
     </>
   );
 }

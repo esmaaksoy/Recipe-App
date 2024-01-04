@@ -7,8 +7,7 @@ import { CardActionArea, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 export default function RecipeCard({ data }) {
-  console.log(data);
-  const { image, label, ingredients, calories, id } = data.recipe;
+  const { image, label, ingredients, calories} = data.recipe;
   const navigate = useNavigate();
   return (
     <Card>

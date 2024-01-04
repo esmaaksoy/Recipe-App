@@ -37,7 +37,6 @@ const Home = () => {
         <Button variant="contained" sx={{bgcolor:"#FBCE3A", width:"100%", marginBottom:"2rem", color:"white",borderRadius:"2rem"}}>Login</Button>
         </NavLink>
         <NavLink to={"/register"}><Button variant="contained" sx={{ bgcolor:"#5D7543", width:"100%", color:"white",borderRadius:"2rem"}}>Register</Button></NavLink>
-        
       </Box>
     </Stack>
   );

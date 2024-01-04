@@ -1,52 +1,31 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-import {Grid, Stack } from "@mui/material";
+import {Box, Grid, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import RecipeCard from "../Components/RecipeCard";
-// import Pagination from "@mui/material/Pagination";
 import Container from '@mui/material/Container';
 const Menu = () => {
   const [recipes, setRecipes] = useState([]);
   const [meal, setMeal] = useState("breakfast");
   const [search, setSearch] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [nextPageLink, setNextPageLink] = useState(null);
   const API_ID = process.env.REACT_APP_ID;
   const API_KEY = process.env.REACT_APP_API_KEY;
   const searchFood = async () => {
-    let requestUrl = `https://api.edamam.com/search?q=${search}&app_id=${API_ID}&app_key=${API_KEY}&mealType=${meal}&from=${
-      (currentPage - 1) * 10
-    }&to=${currentPage * 10}&count=${nextPageLink}`;
+    let requestUrl = `https://api.edamam.com/search?q=${search}&app_id=${API_ID}&app_key=${API_KEY}&mealType=${meal}`;
     try {
       const res = await axios(requestUrl);
       setRecipes(res.data.hits);
-      setTotalPages(Math.ceil(res.data.count / 10));
-      if (res.data._links && res.data._links.next) {
-        setNextPageLink(res.data._links.next.href);
-      } else {
-        setNextPageLink(null);
-      }
-      if (currentPage === totalPages) {
-        setCurrentPage(1);
-      }
     } catch (error) {
       console.log(error);
     }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setCurrentPage(1);
-    setRecipes([]);
+    // setRecipes([]);
     searchFood();
   };
-  const handlePageChange = (value) => {
-    setCurrentPage(value);
-    // setRecipes([]);
-  };
-
   const mealTy = [
     {
       value: "Breakfast",
@@ -66,10 +45,10 @@ const Menu = () => {
   ];
   useEffect(() => {
    searchFood()
-  }, [currentPage])
+  }, [])
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
+      <Box component="form" onSubmit={handleSubmit}>
         <Stack
           flexDirection={"row"}
           gap={"2rem"}
@@ -78,7 +57,7 @@ const Menu = () => {
           alignItems="flex-end"
           sx={{flexWrap:"wrap"}}
         >
-          <div>
+          <Box>
             <TextField
               id="standard-basic"
               label="Search"
@@ -87,8 +66,8 @@ const Menu = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-          </div>         
-          <div>
+          </Box>         
+          <Box>
             <TextField
               id="outlined-select-currency"
               select
@@ -97,7 +76,7 @@ const Menu = () => {
               onChange={(e) => setMeal(e.target.value)}
               size="small"
             sx={{ width: {
-              xs: "200px",  // Ekran boyutu < 600px
+              xs: "200px", 
             },              
              }}
             >
@@ -107,12 +86,12 @@ const Menu = () => {
                 </MenuItem>
               ))}
             </TextField>
-          </div>
-          <div>
+          </Box>
+          <Box>
             <Button variant="contained" type="submit" size="large">
              Search
             </Button>
-          </div>
+          </Box>
         </Stack>
         <Grid container spacing={3}  justifyContent="center">
         {recipes.map((data) => (
@@ -121,14 +100,7 @@ const Menu = () => {
           </Grid>
         ))}      
         </Grid>
-      </form>
-      {/* <Stack spacing={2}>
-        <Pagination
-          count={totalPages}
-          page={currentPage}
-          onChange={handlePageChange}
-        />
-      </Stack> */}
+      </Box>
     </Container>
   );
 };

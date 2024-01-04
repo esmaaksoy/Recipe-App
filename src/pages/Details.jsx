@@ -1,7 +1,6 @@
 import { Card, CardMedia, Stack, Typography, Box } from "@mui/material";
 import React from "react";
 import { useLocation } from "react-router-dom";
-
 const Details = () => {
   const location = useLocation();
   const data = location.state;
@@ -14,11 +13,8 @@ const Details = () => {
     shareAs,
     totalNutrients: { FAT, CHOCDF, CHOLE, PROCNT, NA, CA, MG },
   } = data;
-  console.log(data);
-
   return (
     <Stack
-      // padding={4}
       sx={{
         width:{xs:"100%", sm:"100%",md:"70%" } ,
         boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
@@ -33,7 +29,6 @@ const Details = () => {
       <Stack flexDirection={"row"} sx={{ width: "100%" }}>
         <CardMedia
           component="img"
-          // height="350px"
           sx={{ width: "50%", borderRadius: "2rem", height:{xs:"200px", sm:"250px",md:"350px"} }}
           image={image}
           alt={label}
@@ -66,7 +61,6 @@ const Details = () => {
           <Typography variant="h5" paddingBottom={"1rem"} fontFamily={"'Sevillana', cursive"} fontWeight={"bold"}>
             Ingredients
           </Typography>
-
           {ingredientLines.map((item) => (
             <Typography>{item}</Typography>
           ))}
