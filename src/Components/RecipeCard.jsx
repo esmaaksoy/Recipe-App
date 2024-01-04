@@ -19,12 +19,22 @@ export default function RecipeCard({ data }) {
       >
         <CardMedia
           component="img"
-          height="140"
+          height="300"
           image={image}
           alt="green iguana"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+        <CardContent sx={{textAlign:"center"}}>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              WebkitLineClamp: "1",
+            }}
+          >
             {label}
           </Typography>
 
@@ -33,12 +43,14 @@ export default function RecipeCard({ data }) {
             alignItems={"center"}
             justifyContent={"center"}
             gap={"1rem"}
+            flexWrap={"wrap"}
+            marginBottom={2}
           >
             <Typography>{calories.toFixed(1)} CALORİES</Typography>
-            <span>I</span>
-            <Typography>{ingredients.length}INGREDIENTS</Typography>
+            <Typography sx={{ display: { xs: 'none', sm: 'block' } }}>|</Typography>
+            <Typography >{ingredients.length}INGREDIENTS</Typography>
           </Stack>
-          <Button variant="contained">DETAİLS</Button>
+          <Button variant="text" color="success">See more</Button>
         </CardContent>
       </CardActionArea>
     </Card>

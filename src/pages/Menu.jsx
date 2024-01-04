@@ -86,6 +86,8 @@ const Menu = () => {
           gap={"2rem"}
           margin={"3rem"}
           justifyContent={"center"}
+          alignItems="flex-end"
+          sx={{flexWrap:"wrap"}}
         >
           <div>
             <TextField
@@ -97,11 +99,7 @@ const Menu = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div>
-            <Button variant="contained" type="submit">
-              Contained
-            </Button>
-          </div>
+         
           <div>
             <TextField
               id="outlined-select-currency"
@@ -109,24 +107,35 @@ const Menu = () => {
               label="Select"
               value={meal}
               onChange={(e) => setMeal(e.target.value)}
-              helperText="Please select your meal"
+              size="small"
+            sx={{ width: {
+              xs: "200px",  // Ekran boyutu < 600px
+            },
+              
+             }}
             >
+
               {mealTy.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
+                <MenuItem key={option.value} value={option.value} >
                   {option.value}
                 </MenuItem>
               ))}
             </TextField>
           </div>
+          <div>
+            <Button variant="contained" type="submit" size="large">
+             Search
+            </Button>
+          </div>
         </Stack>
-
-        <Grid container>
-          {recipes.map((data) => (
-            <RecipeCard key={data.recipe.label} data={data} />
-          ))}
+        <Grid container spacing={3} padding={"4rem"} justifyContent="center">
+        {recipes.map((data) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} >
+          <RecipeCard key={data.recipe.label} data={data} />
+          </Grid>
+        ))}      
         </Grid>
       </form>
-
       <Stack spacing={2}>
         <Pagination
           count={totalPages}
