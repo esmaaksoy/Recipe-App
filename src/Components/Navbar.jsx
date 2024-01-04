@@ -8,15 +8,13 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import avatar from "../assets/icons/avatar.png";
-const pages = ["home", "about", "contact", "menu"];
+const pages = ["home","menu", "blog"];
 function Navbar() {
   const { logOut, currentUser } = useAuthContext();
 
@@ -44,6 +42,7 @@ function Navbar() {
       <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
+            <NavLink to={"/home"} style={{display:"flex", textDecoration:"none"}}>
             <RestaurantIcon
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -51,6 +50,7 @@ function Navbar() {
                 color: "#88BF6F",
               }}
             />
+                
             <Typography
               variant="h6"
               noWrap
@@ -68,7 +68,7 @@ function Navbar() {
             >
               Recipe
             </Typography>
-
+            </NavLink>  
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
@@ -110,6 +110,7 @@ function Navbar() {
                 ))}
               </Menu>
             </Box>
+            <NavLink to={"/home"} style={{display:"flex", textDecoration:"none"}}>
             <RestaurantIcon
               sx={{
                 display: { xs: "flex", md: "none" },
@@ -117,6 +118,7 @@ function Navbar() {
                 color: "#88BF6F",
               }}
             />
+           
             <Typography
               variant="h5"
               noWrap
@@ -135,6 +137,7 @@ function Navbar() {
             >
               Recipe
             </Typography>
+            </NavLink>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <NavLink

@@ -18,38 +18,38 @@ const Details = () => {
 
   return (
     <Stack
-      padding={4}
+      // padding={4}
       sx={{
-        width: "70%",
+        width:{xs:"100%", sm:"100%",md:"70%" } ,
         boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
         marginTop: "2rem",
         marginBottom: "2rem",
+        padding:{xs:"1rem",sm:"1rem",md:"4rem"}
       }}
       justifyContent={"center"}
       alignItems={"center"}
       margin={"auto"}
-   
     >
       <Stack flexDirection={"row"} sx={{ width: "100%" }}>
         <CardMedia
           component="img"
-          height="350px"
-          sx={{ width: "50%", borderRadius: "2rem" }}
+          // height="350px"
+          sx={{ width: "50%", borderRadius: "2rem", height:{xs:"200px", sm:"250px",md:"350px"} }}
           image={image}
           alt={label}
         />
-        <Box sx={{ width: "50%", marginLeft: "3rem" }}>
-          <Typography variant="h4" marginBottom={"2rem"}>
+        <Box sx={{ width: "50%", marginLeft:{xs:"0.5rem", sm:"1rem", md:"3rem"} }}>
+          <Typography variant="h4" marginBottom={"2rem"} fontFamily={"'Sevillana', cursive"} fontWeight={"bold"} sx={{fontSize:{xs:"1rem", sm:"2rem"}}}>
             {label}
           </Typography>
           <Typography marginBottom={"1rem"} fontWeight={"bold"}>
-            DishType:
+            DishType: 
             <Typography variant="span" color="#494545">
               {dishType}
             </Typography>
           </Typography>
-          <Typography marginBottom={"1rem"} fontWeight={"bold"}>
-            CuisineType:
+          <Typography marginBottom={"1rem"} fontWeight={"bold"} >
+            CuisineType: 
             <Typography variant="span" color="#494545">
               {cuisineType}
             </Typography>
@@ -62,8 +62,8 @@ const Details = () => {
         justifyContent={"space-between"}
         padding={"1rem"}
       >
-        <Box sx={{ width: "50%" }}>
-          <Typography variant="h5" paddingBottom={"1rem"}>
+        <Box sx={{ width: "50%", border:"2px solid black", borderRadius:"2rem", padding:"2rem", marginRight:"2rem"  }}>
+          <Typography variant="h5" paddingBottom={"1rem"} fontFamily={"'Sevillana', cursive"} fontWeight={"bold"}>
             Ingredients
           </Typography>
 
@@ -71,8 +71,8 @@ const Details = () => {
             <Typography>{item}</Typography>
           ))}
         </Box>
-        <Box sx={{ width: "50%" }}>
-          <Typography variant="h5" paddingBottom={"1rem"}>
+        <Box sx={{ width: "50%", border:"2px solid black", borderRadius:"2rem", padding:"2rem" }}>
+          <Typography variant="h5" paddingBottom={"1rem"} fontWeight={"bold"} fontFamily={"'Sevillana', cursive"}>
             Nutrients
           </Typography>
           <Typography variant="body1">
@@ -98,14 +98,6 @@ const Details = () => {
           </Typography>
         </Box>
       </Stack>
-      {/* <div>
-      <Typography variant="body1">
-      Preparation
-        <a href={shareAs} target="_blank" rel="noopener noreferrer">
-          
-        </a>
-      </Typography>
-      </div> */}
     </Stack>
   );
 };

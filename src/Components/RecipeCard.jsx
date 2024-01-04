@@ -9,9 +9,7 @@ import { useNavigate } from "react-router-dom";
 export default function RecipeCard({ data }) {
   console.log(data);
   const { image, label, ingredients, calories, id } = data.recipe;
-
   const navigate = useNavigate();
-
   return (
     <Card>
       <CardActionArea

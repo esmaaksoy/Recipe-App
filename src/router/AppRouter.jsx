@@ -6,8 +6,7 @@ import Details from "../pages/Details";
 import Login from "../pages/Login";
 import Navbar from "../Components/Navbar"
 import Footer from '../Components/Footer'
-import About from "../pages/About";
-import Contact from "../pages/Contact";
+import Blog from "../pages/Blog";
 import Menu from "../pages/Menu";
 
 const AppRouter = () => {
@@ -19,8 +18,7 @@ const AppRouter = () => {
         <Route path="/menu" element={<Menu/>} />
         <Route path="login" element={<Login/>} />
         <Route path="register" element={<Register/>} />
-        <Route path="about" element={<About/>}/>
-        <Route path="contact" element={<Contact/>}/>
+        <Route path="blog" element={<Blog/>}/>
         <Route path="dashboard" element={<PrivateRouter/>}>
           <Route path="details" element={<Details/>} />
         </Route>

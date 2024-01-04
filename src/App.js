@@ -17,7 +17,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <AuthContextProvider>
         <AppRouter />
-        <ToastContainer />
       </AuthContextProvider>
     </ThemeProvider>
   );
