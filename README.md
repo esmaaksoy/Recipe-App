@@ -10,6 +10,7 @@ This application is a recipe website that provides access to detailed recipes fo
 <a href="#"><img src="https://w7.pngwing.com/pngs/403/269/png-transparent-react-react-native-logos-brands-in-colors-icon-thumbnail.png" alt="react" width="40"/></a> 
 <a href="#" target="_blank"> <img src="https://user-images.githubusercontent.com/25181517/189716855-2c69ca7a-5149-4647-936d-780610911353.png" alt="firebase" height="40"/></a> 
 <a href="https://mui.com/" target="_blank"> <img src="https://mui.com/static/logo.png" alt="materialUI" height="40"/></a> 
+<a href="https://www.cypress.io/" target="_blank"> <img src="https://www.cypress.io/images/layouts/cypress-logo.svg" alt="cypress" height="40"/></a> 
 
 ## How to use?
 1) New users can create a new account from the "register" page.
