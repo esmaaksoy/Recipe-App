@@ -98,10 +98,11 @@ function Navbar() {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu} >
                     <NavLink
                       to={`/${page}`}
                       style={{ textAlign: "center", textDecoration: "none" }}
+                      
                     >
                       {page.toUpperCase()}
                     </NavLink>
@@ -139,6 +140,7 @@ function Navbar() {
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <NavLink
+                data-test={page + "test"}
                   to={`/${page}`}
                   key={page}
                   onClick={handleCloseNavMenu}
@@ -148,6 +150,7 @@ function Navbar() {
                     display: "block",
                     textDecoration: "none",
                     marginRight: "1rem",
+                    
                   }}
                 >
                   {page.toUpperCase()}

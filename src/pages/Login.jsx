@@ -59,7 +59,7 @@ export default function Login() {
           <Avatar sx={{ m: 1, bgcolor: "black" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography data-test="loginHeader" component="h1" variant="h5">
             Login
           </Typography>
           <Box
@@ -79,6 +79,7 @@ export default function Login() {
                   name="email"
                   autoComplete="email"
                   onChange={handleChange}
+                  data-test="loginEmail"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -91,6 +92,7 @@ export default function Login() {
                   id="password"
                   autoComplete="new-password"
                   onChange={handleChange}
+                  data-test="loginPassword"
                 />
               </Grid>
             </Grid>
@@ -99,6 +101,7 @@ export default function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              data-test="loginSbmt"
             >
               Login
             </Button>
